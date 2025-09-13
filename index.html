@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop</title>
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/lib/bootstrap-icons.css">
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/bootstrap.bundle.min.js"></script>
+    <style>
+        nav {
+            height: 65px;
+        }
+
+        .search-group {
+            padding: 50px;
+            /* Giữ nguyên nếu cần, nhưng giảm nếu tràn mobile */
+        }
+
+        .box_header {
+            background-color: #f58b64;
+            font-weight: bold;
+            font-size: 12px;
+            color: white;
+            height: 120px;
+        }
+
+        .btn {
+            background-color: #EC8663;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #f3a389;
+        }
+
+        .account-cart a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .product-card {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Fix z-index cho navbar collapse trên mobile */
+        .navbar-collapse {
+            z-index: 1070;
+            /* Cao hơn carousel (1060) để menu không bị che */
+        }
+
+        .navbar-collapse.show {
+            position: relative;
+            /* Đảm bảo collapse mở ra ở vị trí đúng, không bị lấp */
+            background-color: #f8f9fa;
+            /* Thêm background nếu cần để menu nổi bật */
+            padding: 1rem;
+            /* Thêm padding cho mobile */
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Bỏ .row wrapper quanh navbar để tránh conflict grid -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.webp" alt="Logo" style="height: 40px;">
+            </a>
+
+            <!-- Nút 3 gạch -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nội dung menu -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Danh mục -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="catDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Danh Mục Sản Phẩm
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="catDropdown">
+                            <li><a class="dropdown-item" href="#meo">Thức ăn cho mèo</a></li>
+                            <li><a class="dropdown-item" href="#cho">Thức ăn cho chó</a></li>
+                            <li><a class="dropdown-item" href="#giuongnem">Giường nệm chó - mèo</a></li>
+                            <li><a class="dropdown-item" href="#vatdung">Vật dụng chó - mèo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Thanh tìm kiếm -->
+                <form class="d-flex flex-grow-1 my-2 my-lg-0" role="search">
+                    <div class="input-group w-100">
+                        <input class="form-control" type="search" placeholder="Tìm kiếm sản phẩm..."
+                            aria-label="Search">
+                        <button class="btn" type="submit">
+                            <i class="bi bi-search-heart fs-5"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Đăng nhập + Thẻ -->
+                <ul class="navbar-nav ms-lg-3 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="html/login.html" class="nav-link d-flex align-items-center">
+                            <i class="bi bi-person-circle fs-4 me-2"></i>
+                            <span>Tài khoản</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="html/giohang.html" class="nav-link d-flex align-items-center">
+                            <i class="bi bi-bag-plus-fill fs-4 me-2"></i>
+                            <span>Giỏ hàng</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <header>
+                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"
+                    data-bs-interval="3000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="3000">
+                            <img src="img/home_slider_1.webp" class="d-block w-100" alt="#">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="img/home_slider_1.webp" class="d-block w-100" alt="#">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="img/home_slider_1.webp" class="d-block w-100" alt="#">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <div class="box_header text-center p-3">
+                    <p class="fw-bold text-white fs-6 fs-md-4 fs-lg-4 mb-2">
+                        MUA NHIỀU GIẢM SÂU - giảm đến 50%!
+                        Chỉ 1 tuần duy nhất!!!
+                    </p>
+                    <a href="#">
+                        <button class="btn btn-outline-light fw-bold px-3 py-2 rounded-pill"
+                            style="background-color:#f58b64;">
+                            Mua ngay
+                        </button>
+                    </a>
+                </div>
+            </header>
+            <div class="row mt-4">
+                <!-- Sản phẩm sẽ được load động bởi JS -->
+                <!-- thức ăn cho mèo -->
+                <div class="col-12" id="meo">
+                    <p style="font-size: 35px; color: #f3a389; font-weight: bold; 
+                text-align: center; margin-bottom: 30px;">
+                        <strong>Dinh Dưỡng cho mèo</strong>
+                    </p>
+                </div>
+                <div class="row" id="list-meo"></div>
+                <!-- thức ăn cho chó -->
+                <div class="col-12" id="cho">
+                    <p style="font-size: 35px; color: #f3a389; font-weight: bold; 
+                text-align: center; margin-bottom: 30px;">
+                        <strong>Dinh Dưỡng cho chó</strong>
+                    </p>
+                </div>
+                <div class="row" id="list-cho"></div>
+                <!-- giường nệm cho chó mèo -->
+                <div class="col-12" id="giuongnem">
+                    <p style="font-size: 35px; color: #f3a389; font-weight: bold; 
+                text-align: center; margin-bottom: 30px;">
+                        <strong>Giường Nệm Cho Chó Mèo</strong>
+                    </p>
+                </div>
+                <div class="row" id="list-giuongnem"></div>
+                <!-- Vật dụng cho chó mèo -->
+                <div class="col-12" id="vatdung">
+                    <p style="font-size: 35px; color: #f3a389; font-weight: bold; 
+                text-align: center; margin-bottom: 30px;">
+                        <strong>Vật Dụng Cho Chó Mèo</strong>
+                    </p>
+                </div>
+                <div class="row" id="list-vatdung"></div>
+            </div>
+        </div>
+    </div>
+    <footer class="mt-5">
+        <div class="container">
+            <p>&copy; 2025 Pet Shop. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+<script src="js/thongtinsanpham.js"></script>
+<script src="js/render.js"></script>
+<script src="js/themgiohang.js"></script>
+</html>

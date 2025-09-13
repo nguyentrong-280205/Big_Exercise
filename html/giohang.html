@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng - Pet Shop</title>
+    <link rel="stylesheet" href="../css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/lib/bootstrap-icons.css">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../js/lib/bootstrap.bundle.min.js"></script>
+    <style>
+        nav {
+            height: 65px;
+        }
+
+        .box_header {
+            background-color: #f58b64;
+            font-weight: bold;
+            font-size: 12px;
+            color: white;
+            height: 120px;
+        }
+
+        .btn {
+            background-color: #EC8663;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #f3a389;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .cart-item-img {
+            height: 80px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/logo.webp" alt="Logo" style="height: 40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Danh Mục Sản Phẩm
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#meo">Thức ăn cho mèo</a></li>
+                            <li><a class="dropdown-item" href="#cho">Thức ăn cho chó</a></li>
+                            <li><a class="dropdown-item" href="#giuongnem">Giường nệm chó - mèo</a></li>
+                            <li><a class="dropdown-item" href="#vatdung">Vật dụng chó - mèo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form class="d-flex flex-grow-1 my-2 my-lg-0" role="search">
+                    <div class="input-group w-100">
+                        <input class="form-control" type="search" placeholder="Tìm kiếm sản phẩm..."
+                            aria-label="Search">
+                        <button class="btn" type="submit">
+                            <i class="bi bi-search-heart fs-5"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <ul class="navbar-nav ms-lg-3 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="../html/login.html" class="nav-link d-flex align-items-center">
+                            <i class="bi bi-person-circle fs-4 me-2"></i>
+                            <span>Tài khoản</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../html/cart.html" class="nav-link d-flex align-items-center active">
+                            <i class="bi bi-bag-plus-fill fs-4 me-2"></i>
+                            <span>Giỏ hàng</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Nội dung giỏ hàng -->
+    <div class="container mt-5">
+        <h2 class="mb-4">Giỏ Hàng Của Bạn</h2>
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Hình Ảnh</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Số Lượng</th>
+                    <th>Giá</th>
+                    <th>Hành Động</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Hàng giỏ hàng load động bởi JS -->
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between align-items-center">
+            <h4>Tổng Tiền: <span id="cart-total">0 VNĐ</span></h4>
+            <a href="../html/thanhtoan.html" class="btn btn-success px-4">Thanh Toán</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container">
+            <p>&copy; 2025 Pet Shop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/themgiohang.js"></script>
+</body>
+
+</html>

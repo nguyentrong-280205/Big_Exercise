@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Food Shop - Đăng Ký</title>
+    <link rel="stylesheet" href="../css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/lib/bootstrap-icons.css">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../js/lib/bootstrap.bundle.min.js"></script>
+    <style>
+        nav {
+            height: 65px;
+        }
+
+        .search-group {
+            padding: 50px;
+        }
+
+        .btn {
+            background-color: #EC8663;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #f3a389;
+        }
+
+        .account-cart a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../img/logo.webp" alt="#">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="col-4 col-md-8 search-group me-5">
+                        <div class="input-group">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false" style="width: 200px;">
+                                Danh Mục Sản Phẩm
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Thức ăn cho mèo</a></li>
+                                <li><a class="dropdown-item" href="#">Thức ăn cho chó</a></li>
+                                <li><a class="dropdown-item" href="#">Giường nệm chó - mèo</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Sản phẩm khác</a></li>
+                            </ul>
+                            <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                            <button class="btn" type="button" style="width: 60px;">
+                                <i class="bi bi-search-heart fs-3"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Account and Cart (visible on larger screens) -->
+                    <div class="col-2 col-md-2 account-cart">
+                        <a href="">
+                            <div class="row btn-login">
+                                <div class="col-3 mt-0">
+                                    <i class="bi bi-person-circle fs-2"></i>
+                                </div>
+                                <div class="col-9">
+                                    Tài khoản <br>
+                                    <strong>Đăng nhập</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-2 col-md-2 account-cart">
+                        <a href="../html/login.html">
+                            <div class="row btn-shopping">
+                                <div class="col-2 mt-0">
+                                    <i class="bi bi-bag-plus-fill fs-2"></i>
+                                </div>
+                                <div class="col-10 col-md-10 mt-3">
+                                    Giỏ hàng
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center">Đăng Ký</h2>
+                <form class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Họ Tên</label>
+                        <input type="text" class="form-control" id="name" required>
+                        <div class="invalid-feedback">Vui lòng nhập họ tên.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Mật Khẩu</label>
+                        <input type="password" class="form-control" id="password" required>
+                        <div class="invalid-feedback">Vui lòng nhập mật khẩu.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirm-password" class="form-label">Xác Nhận Mật Khẩu</label>
+                        <input type="password" class="form-control" id="confirm-password" required>
+                        <div class="invalid-feedback">Vui lòng xác nhận mật khẩu.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Đăng Ký</button>
+                </form>
+                <p class="text-center mt-3">Đã có tài khoản? <a href="login.html">Đăng Nhập</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-5">
+        <div class="container">
+            <p>&copy; 2025 Pet Food Shop. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
