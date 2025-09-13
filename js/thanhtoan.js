@@ -56,6 +56,6 @@ function handleCheckout() {
   alert(`Cảm ơn ${name}!\nĐơn hàng của bạn sẽ được giao đến:\n${address}\nSĐT: ${phone}\nTổng tiền: ${total.toLocaleString()}đ`);
 
   localStorage.removeItem("cart");
-  window.location.href = "./index.html";
+  window.location.href = "index.html";
 }
 
