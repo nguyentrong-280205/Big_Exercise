@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         products.forEach(product => {
             const productHtml = `
                 <div class="col-md-3 mb-4">
-                    <div class="product-card border p-3 rounded shadow-sm h-100 ms-4">
+                    <div class="product-card border p-3 rounded shadow-sm h-100 ms-5">
                         <a href="chitiet_sp.html?type=${type}&id=${product.id}" 
                            style="text-decoration: none; color: inherit;">
                             <img src="${product.img}" class="img-fluid mb-2" alt="${product.name}">
